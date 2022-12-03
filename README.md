@@ -1,1 +1,1 @@
-# core-mvc
+# app_core
