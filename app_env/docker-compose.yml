@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+    
+    php:
+        build:
+            context: ./docker/
+            dockerfile: Dockerfile
+        container_name: app_php
+        restart: unless-stopped
+        # depends_on: 
+            # - mysql
+        volumes: 
+            - ../app:/var/www/html/app
+        networks: 
+            - my_network
+
+    nginx:
+        image: nginx:latest
+        container_name: app_nginx
+        volumes: 
+            - ../app:/var/www/html/app
+            - ./docker/nginx/logs:/var/log/nginx
+            - ./docker/nginx/config:/etc/nginx/conf.d
+        ports:
+            - "80:80"
+        depends_on: 
+            - php
+        networks: 
+            - my_network
+
+networks: 
+    my_network:
