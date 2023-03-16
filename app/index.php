@@ -1,2 +1,3 @@
 <?php
-var_dump($_GET);die;
+session_start();
+require 'vendor/autoload.php';

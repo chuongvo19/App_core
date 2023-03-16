@@ -1,0 +1,21 @@
+{
+    "name": "app/appcore",
+    "description": "this is app core",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Vo Chuong",
+            "email": "vochuong193@gmail.com"
+        }
+    ],
+
+    "require": {},
+    
+    "autoload": {
+        "psr-4": {
+            "App\\": "./app"
+        },
+
+        "files": ["tests/test.php"]
+    }
+}
